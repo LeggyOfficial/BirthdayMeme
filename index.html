@@ -3,19 +3,36 @@
     <head>
         <title>Birthay MEME</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            display: grid;
-            height: 99%;
-        }
-        .center-fit {
-            max-width: 99%;
-            max-height: 99vh;
-            margin: auto;
-        }
+ .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button1:hover {
+  background-color: #008CBA;
+  color: white;
+}
     </style>
 <script type="text/javascript">
   var imageURLs = [
@@ -38,19 +55,48 @@
      , "18.jpg"
      , "19.jpg"
      , "20.jpg"
+     , "21.gif"
+     , "22.png"
   ];
   function getImageTag() {
     var img = '<img src=\"';
     var randomIndex = Math.floor(Math.random() * imageURLs.length);
     img += imageURLs[randomIndex];
-    img += '\" alt=\"Some alt text\"/>';
+    img += '\" alt=\"FUNNY MEME\"/>';
+    img += '<button onclick=\"document.write(getImageTag())\">MORE MEME</button>';
+    imageURLs.splice(randomIndex,1);
     return img;
   }
+ function pictureChange()
+  {
+    var randomIndex = Math.floor(Math.random() * imageURLs.length);
+    return imageURLs[randomIndex];
+  }
+
+
+function startRandom () {
+var a;
+a = document.getElementById("coin");
+var randomIndex = Math.floor(Math.random() * imageURLs.length);
+a.src = imageURLs[randomIndex];
+}
+
+function addEventtoButton(){
+startRandom();
+var element = document.getElementById('testing');
+element.onclick = function coinResult () {
+var a;
+a = document.getElementById("coin");
+var randomIndex = Math.floor(Math.random() * imageURLs.length);
+a.src = imageURLs[randomIndex];
+
+};
+}
+
 </script>
 </head>
-<body>
-<script type="text/javascript">
-  document.write(getImageTag());
-</script>
+<body onload='addEventtoButton()'>
+<button id='testing' class="button button1">NEXT MEME</button>
+<img name='coin' id='coin' src='0.jpg' class=center>
 </body>
 </html>

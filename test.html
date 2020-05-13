@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type=text/javascript>
+
+
+function addEventtoButton(){
+var element = document.getElementById('testing');
+element.onclick = coinResult () {
+var a;
+a = document.getElementById("coin");
+var faceValue = Math.floor((Math.random()*2)+1);                
+
+if (faceValue == 1) {                        // or set if to true, or flip() as in original example
+a.src='img1.png';
+a.alt='Heads';          
+} else {
+a.src='img2.png';
+a.alt='Tails';          
+} };
+}
+
+</script>
+</head>
+<body onload='addEventtoButton()'>
+<button id='testing'>testme</button>
+<img name='coin' id='coin' src='01.jpg'>
+</body>
+</html>
