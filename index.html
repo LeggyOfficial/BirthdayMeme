@@ -8,7 +8,8 @@
   margin-left: auto;
   margin-right: auto;
   width: 35%;
-}
+ }
+
 
 .button {
   border: none;
@@ -58,25 +59,10 @@
      , "21.gif"
      , "22.png"
   ];
-  function getImageTag() {
-    var img = '<img src=\"';
-    var randomIndex = Math.floor(Math.random() * imageURLs.length);
-    img += imageURLs[randomIndex];
-    img += '\" alt=\"FUNNY MEME\"/>';
-    img += '<button onclick=\"document.write(getImageTag())\">MORE MEME</button>';
-    imageURLs.splice(randomIndex,1);
-    return img;
-  }
- function pictureChange()
-  {
-    var randomIndex = Math.floor(Math.random() * imageURLs.length);
-    return imageURLs[randomIndex];
-  }
-
 
 function startRandom () {
 var a;
-a = document.getElementById("coin");
+a = document.getElementById("meme");
 var randomIndex = Math.floor(Math.random() * imageURLs.length);
 a.src = imageURLs[randomIndex];
 }
@@ -84,19 +70,61 @@ a.src = imageURLs[randomIndex];
 function addEventtoButton(){
 startRandom();
 var element = document.getElementById('testing');
-element.onclick = function coinResult () {
-var a;
-a = document.getElementById("coin");
-var randomIndex = Math.floor(Math.random() * imageURLs.length);
-a.src = imageURLs[randomIndex];
 
+element.onclick = function generateMeme () {
+var element = document.getElementById('testing');
+if(element.value == "again")
+{
+    element.value="new"
+    element.innerHTML = 'NEXT MEME';
+    imageURLs = [
+       "img1.png"
+     , "img2.png"
+     , "img3.png"
+     , "img4.png"
+     , "img5.png"
+     , "img6.png"
+     , "img7.png"
+     , "img8.png"
+     , "img9.png"
+     , "img10.png"
+     , "11.jpg"
+     , "12.jpg"
+     , "13.jpg"
+     , "14.jpg"
+     , "15.jpg"
+     , "17.jpg"
+     , "18.jpg"
+     , "19.jpg"
+     , "20.jpg"
+     , "21.gif"
+     , "22.png"
+  ]
+}
+
+var a;
+a = document.getElementById("meme");
+if (Array.isArray(imageURLs) && imageURLs.length) 
+{
+    var randomIndex = Math.floor(Math.random() * imageURLs.length);
+    a.src = imageURLs[randomIndex];
+    imageURLs.splice(randomIndex,1)
+}
+else
+{
+    a.src ="100.jpg"
+    element.value="again"
+    element.innerHTML = 'JESZCZE RAZ!';
+}
 };
 }
+
+
 
 </script>
 </head>
 <body onload='addEventtoButton()'>
 <button id='testing' class="button button1">NEXT MEME</button>
-<img name='coin' id='coin' src='0.jpg' class=center>
+<img name='meme' id='meme' src='0.jpg' class=center>
 </body>
 </html>
