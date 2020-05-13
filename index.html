@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Birthay MEME</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 99%;
+        }
+        .center-fit {
+            max-width: 99%;
+            max-height: 99vh;
+            margin: auto;
+        }
+    </style>
+<script type="text/javascript">
+  var imageURLs = [
+       "img1.png"
+     , "img2.png"
+     , "img3.png"
+     , "img4.png"
+     , "img5.png"
+     , "img6.png"
+     , "img7.png"
+     , "img8.png"
+     , "img9.png"
+     , "img10.png"
+  ];
+  function getImageTag() {
+    var img = '<img src=\"';
+    var randomIndex = Math.floor(Math.random() * imageURLs.length);
+    img += imageURLs[randomIndex];
+    img += '\" alt=\"Some alt text\"/>';
+    return img;
+  }
+</script>
+</head>
+<body>
+<script type="text/javascript">
+  document.write(getImageTag());
+</script>
+</body>
+</html>
